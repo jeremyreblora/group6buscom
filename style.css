@@ -1,0 +1,173 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: url(picture/Gemini_Generated_Image_95nm1s95nm1s95nm.jpg) center / cover no-repeat fixed;
+}
+body.home { min-height: 100vh; }
+@media (min-height: 650px) { body.home { height: 100vh; overflow: hidden; } }
+
+/* ---------- Navbar ---------- */
+.navbar {
+    position: sticky;
+    top: 12px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: calc(100% - 24px);
+    margin: 12px auto 0;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 40px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.nav-links { display: flex; align-items: center; gap: 2px; }
+
+.navbar a,
+.drop-btn {
+    display: inline-block;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 30px;
+    background: transparent;
+    color: #111;
+    font: bold 14px Arial, sans-serif;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.navbar a:hover,
+.drop-btn:hover,
+.dropdown.open .drop-btn {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+.navbar a.active,
+.drop-btn.active { background: #2e8b57; color: #fff; }
+.navbar a.active:hover,
+.drop-btn.active:hover { background: #226b43; }
+.drop-btn:focus-visible, .navbar a:focus-visible { outline: 2px solid #2e8b57; outline-offset: 2px; }
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ---------- Dropdown ---------- */
+.dropdown { position: relative; }
+.drop-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 190px;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.drop-menu a { display: block; text-align: center; }
+.dropdown.open .drop-menu { display: block; }
+@media (hover: hover) {
+    .dropdown:hover .drop-menu { display: block; }
+    .dropdown::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 12px; }
+}
+
+/* ---------- Content ---------- */
+.content {
+    width: calc(100% - 48px);
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 20px;
+    line-height: 1.6;
+}
+.content h1 { margin-top: 0; }
+.content h2 { border-bottom: 2px solid #2e8b57; padding-bottom: 4px; }
+
+/* Home hero: large frosted-glass panel */
+.hero {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    max-width: none;
+    min-height: calc(100vh - 100px);
+    margin: 16px 24px 24px;
+    padding: 30px;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 6px rgba(255, 255, 255, 0.8);
+}
+.hero img, .hero .photo {
+    width: 150px; height: 150px; object-fit: cover;
+    border-radius: 50%; border: 4px solid #fff; background: #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.hero h1 { margin: 10px 0 0; }
+.tagline { color: #2e8b57; font-weight: bold; margin: 0 0 8px; }
+
+/* Cards (portfolio) */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card {
+    display: block; background: #fff; color: #111; text-decoration: none;
+    padding: 18px; border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25); }
+.card h3 { margin-top: 0; }
+
+/* Buttons, video, embeds, details, table */
+.btn {
+    display: inline-block; padding: 10px 20px; background: #2e8b57; color: #fff;
+    text-decoration: none; border-radius: 25px; font-weight: bold; transition: background 0.25s;
+}
+.btn:hover { background: #226b43; }
+video { width: 100%; border-radius: 12px; background: #000; }
+iframe, iframe.embed { width: 100%; height: 600px; border: 1px solid #ccc; border-radius: 12px; background: #fff; }
+details { background: #fff; border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; }
+summary { cursor: pointer; font-weight: bold; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+th { background: #2e8b57; color: #fff; }
+tr:hover td { background: #eef7f1; }
+.status, .badge { padding: 3px 10px; border-radius: 12px; font-size: 13px; font-weight: bold; background: #eee; }
+.applied { background: #dbeafe; }
+.interview { background: #dcfce7; }
+.pending, .waiting { background: #fef3c7; }
+
+/* ---------- Mobile / narrow screens ---------- */
+@media (max-width: 1000px) {
+    .navbar { flex-direction: column; width: calc(100% - 24px); border-radius: 26px; }
+    .menu-toggle { display: block; align-self: flex-end; }
+    .nav-links { display: none; flex-direction: column; align-items: stretch; width: 100%; text-align: center; }
+    .navbar.open .nav-links { display: flex; }
+    .drop-btn { width: 100%; }
+    .drop-menu { position: static; transform: none; min-width: 0; margin-top: 2px; box-shadow: none; background: rgba(255, 255, 255, 0.5); }
+    .dropdown::after { display: none; }
+    .content { width: auto; margin: 20px 12px; padding: 20px; }
+    body.home { height: auto; overflow: auto; }
+}

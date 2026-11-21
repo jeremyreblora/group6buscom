@@ -18,7 +18,7 @@ const menu = [
     { label: 'Tracker', href: 'tracker.html' }
 ];
 
-const current = (location.pathname.split('/').pop() || 'home.html').toLowerCase();
+const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
 const isHere = href => href.toLowerCase() === current;
 
 const links = menu.map(item => {

@@ -4,7 +4,7 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: url(picture/Gemini_Generated_Image_95nm1s95nm1s95nm.jpg) center / cover no-repeat fixed;
+    background: url(Gemini_Generated_Image_95nm1s95nm1s95nm.jpg) center / cover no-repeat fixed;
 }
 body.home { min-height: 100vh; }
 @media (min-height: 650px) { body.home { height: 100vh; overflow: hidden; } }

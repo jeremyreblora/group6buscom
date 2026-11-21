@@ -1,6 +1,6 @@
 // Edit the menu here once; every page uses it.
 const menu = [
-    { label: 'Home', href: 'home.html' },
+    { label: 'Home', href: 'index.html' },
     { label: 'About Me', children: [
         { label: 'About Me', href: 'about.html' },
         { label: 'Contact', href: 'contact.html' }
